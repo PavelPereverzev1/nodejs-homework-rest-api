@@ -2,7 +2,7 @@ const Contact = require('../../models/contact');
 
 const getAll = async (req, res) => {
   const { _id: owner } = req.user;
-  res.json(await Contact.find({ owner }));
+  res.json(await Contact.find({ owner }, '-createdAt -updatedAt'));
 };
 
 module.exports = getAll;
