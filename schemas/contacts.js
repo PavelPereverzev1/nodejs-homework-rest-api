@@ -5,6 +5,7 @@ const add = Joi.object({
   email: Joi.string().required(),
   phone: Joi.string().required(),
   favorite: Joi.boolean(),
+  owner: Joi.string(),
 });
 
 const update = Joi.object({
