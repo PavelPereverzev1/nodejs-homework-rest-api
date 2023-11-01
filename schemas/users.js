@@ -15,4 +15,13 @@ const subscriptionShema = Joi.object({
   subscription: Joi.string().only().allow('starter', 'pro', 'business'),
 });
 
-module.exports = { registerSchema, loginSchema, subscriptionShema };
+const emailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegExp).required(),
+});
+
+module.exports = {
+  registerSchema,
+  loginSchema,
+  subscriptionShema,
+  emailSchema,
+};
