@@ -17,7 +17,7 @@ describe('registration', () => {
     await User.deleteMany({});
   });
 
-  it('sould registration new user', async () => {
+  it('should registration new user', async () => {
     const response = await testRequest(app)
       .post('/api/users/register')
       .send(testUser);
@@ -27,7 +27,7 @@ describe('registration', () => {
     expect(response.body.user.subscription).toBe('starter');
   });
 
-  it('sould not registrate the same user 2 times', async () => {
+  it('should not registrate the same user 2 times', async () => {
     const response = await testRequest(app)
       .post('/api/users/register')
       .send(testUser);
@@ -46,7 +46,7 @@ describe('registration', () => {
     );
   });
 
-  it('sould not login unregistered user', async () => {
+  it('should not login unregistered user', async () => {
     const response = await testRequest(app)
       .post('/api/users/login')
       .send(fakeUser);
