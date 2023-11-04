@@ -35,16 +35,16 @@ describe('registration', () => {
     expect(response.statusCode).toBe(409);
   });
 
-  // skip.it('login user', async () => {
-  //   const response = await testRequest(app)
-  //     .post('/api/users/login')
-  //     .send(testUser);
+  it('login user', async () => {
+    const response = await testRequest(app)
+      .post('/api/users/login')
+      .send(testUser);
 
-  //   expect(response.statusCode).toBe(200);
-  //   expect(response.body.token).toMatch(
-  //     /^[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/
-  //   );
-  // });
+    expect(response.statusCode).toBe(200);
+    expect(response.body.token).toMatch(
+      /^[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/
+    );
+  });
 
   it('should not login unregistered user', async () => {
     const response = await testRequest(app)
